@@ -14,7 +14,6 @@ Train and test datasets have only 20 users in common that we can use to make pre
 
 Looking at the training dataset results we observe that accuracy is extremely high (above 99%) even for a few latent features. This points to a known problem with matrix factorization with SVD, usually mentioned as overfitting. This becomes even worse for high numbers of latent features. For `k = 10` latent features there are `Ik + Uk` (`I` for items, `U` for users) parameters to estimate, i.e. `1051*10 + 5148*10 = 61990`. These need to be estimated from the `40000` training examples which are much less. To avoid this in practice regularization is used with gradient descent technique.
 
-### TL;DR
 
 Accuracy might not be the right metric to use for our case as more than 99% of the entries in the `user_item` matrix are zeros. This is what makes the model show such a high accuracy score, but of low practical value as it mainly predicts zeros.
 
@@ -27,11 +26,6 @@ The environment in the container is:
 - Python 3.8.10
 
 The main libraries used for this project are ([`requirements.txt`](requirements.txt) includes dependencies):
-
-- jupyter
-- pandas
-- numpy >= 1.13.0
-- matplotlib
 
 - Install the necassary python packages: `pip3 install -r requirements.txt`
 
